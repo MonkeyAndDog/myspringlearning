@@ -34,9 +34,29 @@ IOC
 		5. @Component,初始化key默认是类名小写，value就是对象，一般要定义名字
 		6. @Scope，@PostConstruct，@PreDestroy
 ---
-9. 动态代理
-	1. annotation包中相关示例及Loginterceptor类示例
-	2. 
-
-			
+1. 动态代理
+	* annotation包中相关示例及Loginterceptor类示例
+2. AOP配置
+	1. <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	2. 导入相关的Aspect包
+	3. 实例化@Aspect，如果定义了component-scan，那么要注解@component
+	4. 织入点语法---Spring文档pointcut
+	5. 奇葩方法：
+	
+	```
+	@Pointcut("execution(public * com.mrhu.spring.dao..*.*(..))")
+	public void myMethod(){};
+	@Before("myMethod()")
+	//	@Before("execution(public void com.mrhu.spring.dao.impl.annotation.UserDAOImpl.save(com.mrhu.spring.model.annotation.User))")
+	//	@Before("execution(public * com.mrhu.spring.dao..*.*(..))")
+	public void before() {
+		System.out.println("method start");
+	}
+	```
+	
+	
+	
+	
+	
+				
 

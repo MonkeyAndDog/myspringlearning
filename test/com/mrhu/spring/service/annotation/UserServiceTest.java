@@ -17,8 +17,11 @@ public class UserServiceTest {
 
 	@Test
 	public void test() {
-		ApplicationContext application = new ClassPathXmlApplicationContext("beans_annotation.xml");
+//		ApplicationContext application = new ClassPathXmlApplicationContext("beans_annotation.xml");
+		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_annotation.xml");
 		UserService service = (UserService) application.getBean("userService");
+		//证明是动态代理对象
+		System.out.println(service.getClass());
 		User u = new User();
 		service.add(u);
 
