@@ -16,6 +16,7 @@ public class UserServiceTest {
 		UserService service = (UserService) application.getBean("userService");
 		User u = new User();
 		service.add(u);
+
 	}
 
 }
