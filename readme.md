@@ -1,5 +1,6 @@
 # Spring学习项目
-IOC
+
+## IOC
 ---
 1. 注入类型
 	1. setter（重要）Setter-based dependency injection
@@ -33,7 +34,10 @@ IOC
 		4. @Resource,默认使用byName（name属性指定了从容器中找哪一个key符合的对象），找不到再使用byTpye
 		5. @Component,初始化key默认是类名小写，value就是对象，一般要定义名字
 		6. @Scope，@PostConstruct，@PreDestroy
+
 ---
+## AOP
+
 1. 动态代理
 	* annotation包中相关示例及Loginterceptor类示例
 2. AOP配置
@@ -53,6 +57,16 @@ IOC
 		System.out.println("method start");
 	}
 	```
+---
+
+## Spring整合hibernate
+
+1. Spring整合hibernate
+    1. Spring指定datasource（官方文档有误，应该是commons.dbcp2.BasicDataSource）
+    2. 引入相关的包，dbcp2，pool2
+    3. 根据官方文档配置bean
+    4. 可以使用jdbc.properties单独配置
+    	
 	
 	
 	

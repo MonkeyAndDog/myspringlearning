@@ -3,9 +3,14 @@ package com.mrhu.spring.dao.impl.annotation;
 import com.mrhu.spring.dao.annotation.UserDAO;
 import com.mrhu.spring.model.annotation.User;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.*;
 
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 @Component("uuu")
 public class UserDAOImpl implements UserDAO {
@@ -18,7 +23,19 @@ public class UserDAOImpl implements UserDAO {
 	private List<String> list;
 	private Map<String, String> map;
 	private Set<String> set;
-	
+
+	//整合hibernate
+	private DataSource dataSource;
+
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	@Resource
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	public List<String> getList() {
 		return list;
 	}
@@ -61,7 +78,20 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
     public void save(User user) {
-        System.out.println("user save");
+		Connection conn = null;
+		try{
+			conn = dataSource.getConnection();
+			conn.createStatement().execute("insert into user VALUES(null, 'zhangsan'); ");
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try{
+				conn.close();
+			} catch(SQLException e2) {
+				e2.printStackTrace();
+			}
+		}
+        System.out.println("user save666");
     }
 	
 	@Override

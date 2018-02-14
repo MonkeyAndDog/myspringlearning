@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Beans_datasource" removed="false">
+          <file>file://$MODULE_DIR$/src/beans_datasource.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -9,9 +18,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="MySQL" level="application" />
-    <orderEntry type="library" name="spring5.03" level="application" />
+    <orderEntry type="library" exported="" name="spring5.03" level="application" />
     <orderEntry type="library" name="hibernate" level="application" />
     <orderEntry type="library" name="jdom" level="application" />
+    <orderEntry type="library" name="Aspect" level="application" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit4">
         <CLASSES>
@@ -22,5 +32,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="dbcp" level="application" />
+    <orderEntry type="library" name="pool2" level="application" />
   </component>
 </module>

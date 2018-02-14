@@ -1,7 +1,5 @@
 package com.mrhu.spring.service.annotation;
 
-import static org.junit.Assert.*;
-
 import java.lang.reflect.Proxy;
 
 import org.junit.Test;
@@ -18,7 +16,9 @@ public class UserServiceTest {
 	@Test
 	public void test() {
 //		ApplicationContext application = new ClassPathXmlApplicationContext("beans_annotation.xml");
-		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_annotation.xml");
+//		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_annotation.xml");
+//		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_xml.xml");
+		ApplicationContext application = new ClassPathXmlApplicationContext("beans_datasource.xml");
 		UserService service = (UserService) application.getBean("userService");
 		//证明是动态代理对象
 		System.out.println(service.getClass());
