@@ -1,4 +1,4 @@
-package com.mrhu.spring;
+package com.mrhu.spring.annotation;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,6 +9,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
+@Deprecated
 public class ClassPathXmlApplicationContext implements BeanFactory {
 	
 	private Map<String, Object> beans = new HashMap<String, Object>();

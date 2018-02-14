@@ -1,4 +1,4 @@
-package com.mrhu.spring.model;
+package com.mrhu.spring.model.annotation;
 
 public class User {
 
