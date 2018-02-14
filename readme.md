@@ -26,7 +26,7 @@ IOC
 8. 使用Annotation配置Spring
 	1. 命名空间的配置
 	2. <context:annotation-config></context:annotation-config>
-	3. 学到的注解
+	3. 学到的注解 
 		1. @Autowired，默认是byType，当多个相同类型的type存在时，要和@Qualifier联合使用
 		2. @Qualifier使用byName
 		3. 如果使用Qualifier要写在set参数上
@@ -34,6 +34,9 @@ IOC
 		5. @Component,初始化key默认是类名小写，value就是对象，一般要定义名字
 		6. @Scope，@PostConstruct，@PreDestroy
 ---
+9. 动态代理
+	1. annotation包中相关示例及Loginterceptor类示例
+	2. 
 
 			
 

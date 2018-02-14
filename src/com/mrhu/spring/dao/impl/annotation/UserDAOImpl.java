@@ -71,4 +71,9 @@ public class UserDAOImpl implements UserDAO {
 		return this.daoId+"";
 	}
 
+	@Override
+	public void delete(User user) {
+		System.out.println("delete user");
+	}
+
 }
