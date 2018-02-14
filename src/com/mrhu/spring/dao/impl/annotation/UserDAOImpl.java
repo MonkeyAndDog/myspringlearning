@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-@Component("uuu")
+//@Component("uuu")
 public class UserDAOImpl implements UserDAO {
 
 	//简单属性注入

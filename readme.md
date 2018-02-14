@@ -46,17 +46,16 @@
 	3. 实例化@Aspect，如果定义了component-scan，那么要注解@component
 	4. 织入点语法---Spring文档pointcut
 	5. 奇葩方法：
-	
-	```
-	@Pointcut("execution(public * com.mrhu.spring.dao..*.*(..))")
-	public void myMethod(){};
-	@Before("myMethod()")
-	//	@Before("execution(public void com.mrhu.spring.dao.impl.annotation.UserDAOImpl.save(com.mrhu.spring.model.annotation.User))")
-	//	@Before("execution(public * com.mrhu.spring.dao..*.*(..))")
-	public void before() {
-		System.out.println("method start");
-	}
-	```
+        ```
+        @Pointcut("execution(public * com.mrhu.spring.dao..*.*(..))")
+        public void myMethod(){};
+        @Before("myMethod()")
+        //	@Before("execution(public void com.mrhu.spring.dao.impl.annotation.UserDAOImpl.save(com.mrhu.spring.model.annotation.User))")
+        //	@Before("execution(public * com.mrhu.spring.dao..*.*(..))")
+        public void before() {
+            System.out.println("method start");
+        }
+        ```
 ---
 
 ## Spring整合hibernate
@@ -65,8 +64,20 @@
     1. Spring指定datasource（官方文档有误，应该是commons.dbcp2.BasicDataSource）
     2. 引入相关的包，dbcp2，pool2
     3. 根据官方文档配置bean
-    4. 可以使用jdbc.properties单独配置
-    	
+    4. 可以使用jdbc.properties+占位符的方式用单独文件配置
+2. Spring相关的的注入
+    1. 在DAO层注入SessionFactory，然后使用SessionFactory获取Session进行存储数据
+    2. 在Service层注解@Transactional，将其事务交给Spring处理
+        * Spring默认catch到RuntimeException就回滚事务
+        * 配置文件中内容
+        ```
+           <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+               <property name="sessionFactory" ref="sessionFactory"/>
+           </bean>
+           <tx:annotation-driven transaction-manager="txManager"></tx:annotation-driven> 
+        ```
+    3. 注入方向：dataSource->sessionFactory->txManager,接下来所有的事务就交给txManager管理 
+
 	
 	
 	

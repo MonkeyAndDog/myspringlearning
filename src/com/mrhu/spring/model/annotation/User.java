@@ -1,5 +1,6 @@
 package com.mrhu.spring.model.annotation;
 
+
 public class User {
 
     private String username;

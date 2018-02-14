@@ -13,7 +13,7 @@ public class LogInteceptor {
 
 //	@Pointcut("execution(public * com.mrhu.spring.dao..*.add(..))")
 	@Pointcut("execution(public * com.mrhu.spring.service..*.add(..))")
-	public void myMethod(){};
+	public void myMethod(){}
 	
 //	@Before("execution(public void com.mrhu.spring.dao.impl.annotation.UserDAOImpl.save(com.mrhu.spring.model.annotation.User))")
 //	@Before("execution(public * com.mrhu.spring.dao..*.*(..))")

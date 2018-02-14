@@ -12,7 +12,7 @@ import com.mrhu.spring.dao.impl.annotation.UserDAOImpl;
 import com.mrhu.spring.dao.annotation.UserDAO;
 import com.mrhu.spring.model.annotation.User;
 
-@Component("userService")
+@Component("userService_annotation")
 public class UserService {
 
     private UserDAO userDAO;
@@ -36,7 +36,7 @@ public class UserService {
 //    public void setUserDAO(@Qualifier(value="u") UserDAO userDAO) {
     
     //和component一起用
-    @Resource(name="uuu")
+//    @Resource(name="uuu")
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
