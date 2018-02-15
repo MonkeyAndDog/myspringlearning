@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
-@Transactional
+
 @Component("userService")
 public class UserService {
 
@@ -33,6 +33,7 @@ public class UserService {
     	this.userDAO = userDAO;
     }
 
+    @Transactional
     public void add(User user) {
         this.userDAO.save(user);
         Log log = new Log();

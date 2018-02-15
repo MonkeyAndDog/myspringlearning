@@ -12,31 +12,11 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <!-- 用于xml配置Spring -->
+    <!-- spring和hibernate整合 -->
 
     <context:annotation-config></context:annotation-config> 
     <context:component-scan base-package="com.mrhu.spring"></context:component-scan>
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
-
-    <!--
-    <bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/spring"/>
-        <property name="username" value="root"/>
-        <property name="password" value="1111"/>
-    </bean>
-    -->
-
-    <!--
-    <bean id="logInteceptor" class="com.mrhu.spring.aop._xml.LogInteceptor">
-    </bean>
-    <aop:config>
-        <aop:pointcut id="servicePointcut" expression="execution(public * com.mrhu.spring.service..*.add(..))"></aop:pointcut>
-        <aop:aspect id="logAspect" ref="logInteceptor">
-            <aop:before method="before" pointcut-ref="servicePointcut"></aop:before>
-        </aop:aspect>
-    </aop:config>
-    -->
 
     <!-- 使用jdbc.properties配置连接池 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -53,14 +33,6 @@
     <!-- 注入方向：dataSource->sessionFactory->txManager,接下来所有的事务就交给txManager管理 -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-
-        <!--<property name="annotatedClasses">
-            <list>
-                <value>com.mrhu.spring.model.User</value>
-                <value>com.mrhu.spring.model.Log</value>
-            </list>
-        </property>-->
-
         <!-- packagesToScan使用，使得model包中的内容得以全部实例化 -->
         <property name="packagesToScan">
             <list>
@@ -72,6 +44,19 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
             </props>
+        </property>
+    </bean>
+
+    <!-- Spring的事务管理 -->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"></tx:annotation-driven>
+
+    <!-- 模板方法 -->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
         </property>
     </bean>
 </beans>

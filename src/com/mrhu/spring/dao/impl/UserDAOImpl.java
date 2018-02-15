@@ -4,6 +4,7 @@ import com.mrhu.spring.dao.UserDAO;
 import com.mrhu.spring.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -26,18 +27,27 @@ public class UserDAOImpl implements UserDAO {
 	private Map<String, String> map;
 	private Set<String> set;
 
-	private SessionFactory sessionFactory;
-
 	//整合hibernate
-
-
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	private HibernateTemplate hibernateTemplate;
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
 	}
 	@Resource
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
 	}
+//	private SessionFactory sessionFactory;
+
+	//	public SessionFactory getSessionFactory() {
+//		return sessionFactory;
+//	}
+//	@Resource
+//	public void setSessionFactory(SessionFactory sessionFactory) {
+//		this.sessionFactory = sessionFactory;
+//	}
+
+
+
 
 	public List<String> getList() {
 		return list;
@@ -82,8 +92,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
     public void save(User user) {
 	    //beginTransaction和commit交给Spring管理
-	    Session session = sessionFactory.getCurrentSession();
-		session.save(user);
+//	    Session session = sessionFactory.getCurrentSession();
+//		session.save(user);
+
+		//使用hibernate模板方法save
+		hibernateTemplate.save(user);
         System.out.println("user save666");
     }
 	

@@ -76,7 +76,9 @@
            </bean>
            <tx:annotation-driven transaction-manager="txManager"></tx:annotation-driven> 
         ```
-    3. 注入方向：dataSource->sessionFactory->txManager,接下来所有的事务就交给txManager管理 
+    3. 注入方向：dataSource->sessionFactory->txManager,接下来所有的事务就交给txManager管理
+4. Spring的TemplateMethod设计模式
+    
 
 	
 	

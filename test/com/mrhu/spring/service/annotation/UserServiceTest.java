@@ -19,7 +19,7 @@ public class UserServiceTest {
 //		ApplicationContext application = new ClassPathXmlApplicationContext("beans_annotation.xml");
 //		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_annotation.xml");
 //		ApplicationContext application = new ClassPathXmlApplicationContext("beans_aop_xml.xml");
-		ApplicationContext application = new ClassPathXmlApplicationContext("beans_datasource.xml");
+		ApplicationContext application = new ClassPathXmlApplicationContext("beans_spring_hibernate.xml");
 		UserService service = (UserService) application.getBean("userService");
 		//证明是动态代理对象
 		System.out.println(service.getClass());
