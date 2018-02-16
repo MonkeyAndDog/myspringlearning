@@ -8,7 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mrhu.spring.aop.LogInterceptor;
 import com.mrhu.spring.dao.UserDAO;
-import com.mrhu.spring.dao.impl.UserDAOImpl;
+import com.mrhu.spring.dao.impl.useDaoSupport.UserDAOImpl;
+import com.mrhu.spring.dao.impl.useDaoSupport.LogDAOImpl;
 import com.mrhu.spring.service.UserService;
 import com.mrhu.spring.model.User;
 

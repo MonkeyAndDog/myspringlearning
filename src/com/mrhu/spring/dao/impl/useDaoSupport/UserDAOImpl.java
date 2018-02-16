@@ -1,4 +1,4 @@
-package com.mrhu.spring.dao.impl;
+package com.mrhu.spring.dao.impl.useDaoSupport;
 
 import com.mrhu.spring.dao.UserDAO;
 import com.mrhu.spring.model.User;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-//@Component("userDAO")
+@Component("userDAO")
 public class UserDAOImpl implements UserDAO {
 
 	//简单属性注入

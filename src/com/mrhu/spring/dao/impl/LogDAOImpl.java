@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Component("logDAO")
+//@Component("logDAO")
 public class LogDAOImpl implements LogDAO {
 
 	private SessionFactory sessionFactory;

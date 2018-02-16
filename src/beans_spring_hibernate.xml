@@ -59,4 +59,8 @@
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
+    
+    <bean name="logDAO" class="com.mrhu.spring.dao.impl.useDaoSupport.LogDAOImpl">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 </beans>

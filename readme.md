@@ -65,6 +65,9 @@
     2. 引入相关的包，dbcp2，pool2
     3. 根据官方文档配置bean
     4. 可以使用jdbc.properties+占位符的方式用单独文件配置
+    5. 遇到的问题：
+    	* Id使用GeneratedValue(strategy = GenerationType.AUTO)时，会报spring_sequence不存在，
+    		* 解决方法：使用sGenerationType.IDENTITY解决
 2. Spring相关的的注入
     1. 在DAO层注入SessionFactory，然后使用SessionFactory获取Session进行存储数据
     2. 在Service层注解@Transactional，将其事务交给Spring处理
@@ -78,7 +81,29 @@
         ```
     3. 注入方向：dataSource->sessionFactory->txManager,接下来所有的事务就交给txManager管理
 4. Spring的TemplateMethod设计模式
-    
+5. HibernateTemplate，HibernateCallback，HibernateDaoSupport
+	1. 设计模式：TemplateMethod
+	2. 第一种：
+		1. 在Spring中初始化HibernateTemplate，注入SessionFactory
+		2. DAO里面注入HibernateTemplate
+		3. save写getHibernateTemplate.save();
+	2. 第二种：
+		1. 从HibernateDaoSupport继承-->需要在配置文件中配置DAO，注入sessionFactory或者hibernateTemplate
+			* 遇到的问题：
+				1. 当在beans_spring_hibernate.xml配置文件中写成：
+				```
+				<bean name="logDAO" class="com.mrhu.spring.dao.impl.useDaoSupport.LogDAOImpl">
+					<property name="sessionFactory" ref="sessionFactory"></property>
+				</bean>
+				```
+				2. 在LogDAOImpl中写为：
+				```
+				this.getHibernateTemplate().save(log);//不会报-->java.lang.StackOverflowError异常
+				//this.save(log);会报-->java.lang.StackOverflowError异常
+				```
+---
+## Spring告一段落2018年2月16日17:43:33
+					    
 
 	
 	
