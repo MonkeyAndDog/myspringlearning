@@ -2,6 +2,18 @@
 
 ## IOC
 ---
+```
+依赖的jar包
+    aspect2
+    dbcp
+    hibernate
+    jdom
+    junit4
+    mysql
+    pool2
+    spring
+    slf4j
+```
 1. 注入类型
 	1. setter（重要）Setter-based dependency injection
 	2. 构造方法注入 Constructor-based dependency injection
@@ -103,12 +115,3 @@
 				```
 ---
 ## Spring告一段落2018年2月16日17:43:33
-					    
-
-	
-	
-	
-	
-	
-				
-
