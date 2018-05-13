@@ -1,14 +1,10 @@
 package com.mrhu.spring.dao;
 
-import com.mrhu.spring.model.onetoseven.User;
-import com.mrhu.spring.service.onetoseven.UserService;
+import com.mrhu.spring.OldVersion.service.onetoseven.UserService;
 
 import org.junit.Test;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.junit.Before; 
-import org.junit.After; 
 
 /** 
 * UserService Tester. 

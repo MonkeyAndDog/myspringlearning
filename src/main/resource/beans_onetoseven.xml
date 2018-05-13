@@ -9,14 +9,14 @@
 	-->	
 	
 	<!-- id和name效果一样 -->
-	<!-- <bean id="u" class="com.mrhu.spring.dao.impl.UserDAOImpl"></bean> -->
+	<!-- <bean id="u" class="UserDAOImpl"></bean> -->
    	<!--  
-   	<bean name="u" class="com.mrhu.spring.dao.impl.UserDAOImpl"></bean>
+   	<bean name="u" class="UserDAOImpl"></bean>
 	-->
 	
 	
 	
-    <bean name="userService" class="com.mrhu.spring.service.onetoseven.UserService" scope="prototype">
+    <bean name="userService" class="com.mrhu.spring.OldVersion.service.onetoseven.UserService" scope="prototype">
 		<!-- setter方法注入 -->
 		<!-- 
 		<property name="userDAO">
@@ -34,14 +34,14 @@
 	
 	<!-- 简单属性的注入 -->
 	<!--  
-	<bean name="userDAO" class="com.mrhu.spring.dao.impl.UserDAOImpl">
+	<bean name="userDAO" class="UserDAOImpl">
 		<property name="daoId" value="9"></property>
 		<property name="daoStatus" value="good"></property>
 	</bean>
 	-->
 	
 	<!-- 集合注入 -->
-	<bean id="moreComplexObject" class="com.mrhu.spring.dao.impl.onetoseven.UserDAOImpl">
+	<bean id="moreComplexObject" class="com.mrhu.spring.OldVersion.dao.impl.onetoseven.UserDAOImpl">
 	    <!-- results in a setSomeList(java.util.List) call -->
 	    <property name="list">
 	        <list>
@@ -66,13 +66,13 @@
 	</bean>
 
 	<!-- 自动装配 -->
-	<bean name="userDAO1" class="com.mrhu.spring.dao.impl.onetoseven.UserDAOImpl">
+	<bean name="userDAO1" class="com.mrhu.spring.OldVersion.dao.impl.onetoseven.UserDAOImpl">
 		<property name="daoId" value="1"></property>
 	</bean>
-	<bean name="userDAO2" class="com.mrhu.spring.dao.impl.onetoseven.UserDAOImpl">
+	<bean name="userDAO2" class="com.mrhu.spring.OldVersion.dao.impl.onetoseven.UserDAOImpl">
 		<property name="daoId" value="2"></property>
 	</bean>
-	<bean name="userServiceAutowire" class="com.mrhu.spring.service.onetoseven.UserService" autowire="no" init-method="init" destroy-method="destory">
+	<bean name="userServiceAutowire" class="com.mrhu.spring.OldVersion.service.onetoseven.UserService" autowire="no" init-method="init" destroy-method="destory">
 				
 	</bean>
 	

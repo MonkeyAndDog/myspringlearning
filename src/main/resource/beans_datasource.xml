@@ -28,7 +28,7 @@
     -->
 
     <!--
-    <bean id="logInteceptor" class="com.mrhu.spring.aop._xml.LogInteceptor">
+    <bean id="logInteceptor" class="LogInteceptor">
     </bean>
     <aop:config>
         <aop:pointcut id="servicePointcut" expression="execution(public * com.mrhu.spring.service..*.add(..))"></aop:pointcut>
@@ -56,8 +56,8 @@
 
         <!--<property name="annotatedClasses">
             <list>
-                <value>com.mrhu.spring.model.User</value>
-                <value>com.mrhu.spring.model.Log</value>
+                <value>User</value>
+                <value>Log</value>
             </list>
         </property>-->
 

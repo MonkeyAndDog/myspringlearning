@@ -1,17 +1,11 @@
 package com.mrhu.spring.service.annotation;
 
-import java.lang.reflect.Proxy;
-
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mrhu.spring.aop.LogInterceptor;
-import com.mrhu.spring.dao.UserDAO;
-import com.mrhu.spring.dao.impl.useDaoSupport.UserDAOImpl;
-import com.mrhu.spring.dao.impl.useDaoSupport.LogDAOImpl;
-import com.mrhu.spring.service.UserService;
-import com.mrhu.spring.model.User;
+import com.mrhu.spring.OldVersion.service.UserService;
+import com.mrhu.spring.OldVersion.model.User;
 
 public class UserServiceTest {
 
